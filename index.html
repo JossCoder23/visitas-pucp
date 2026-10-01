@@ -32,9 +32,201 @@
                     <p>Para escolares de 3° a 5° - Bachillerato Internacional - Padres</p>
                     <p>Para escolares de 3° a 5° - Bachillerato Internacional - Padres</p>
                 </div>
+                <div class="separatorCtImages">
+                    <img src="separator-image-one.png" alt="">
+                    <img src="separator-image-two.png" class="second-image" alt="">
+                </div>
             </div>
             <div class="topForm">
+                <div class="formulario" id="registro">
+                    <h2><b>Registra correctamente tus datos</b> y asegura tu participación</h2>
+                    <form class="bloque1Container__form" id="my-form-pregrado" method="POST">
+                        <div class="eleccion">
+                            <h3>Soy un:</h3>
+                            <select id="soy" name="type-contact" required>
+                                <option value="" disabled selected>- Seleccionar -</option>
+                                <option value="Postulante">Estudiante o egresado</option>
+                                <option value="Tutor, padre o madre de familia">Padre o apoderado</option>
+                            </select>
+                        </div>
+                        
+                        <div id="contenedor-dinamico" style="display: none; flex-direction: column;">
+        
+                            <!-- SECCIÓN ESTUDIANTE -->
+                            <div id="seccion-estudiante">
+                                <div class="header-acordeon" id="header-estudiante" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <h3 style="margin: 0;">Datos del Postulante</h3>
+                                    <span class="toggle-icon" id="toggle-estudiante" style="font-size: 24px; font-weight: bold; display: none;">+</span>
+                                </div>
+                                <div class="campos-desplegables" id="campos-estudiante">
+                                    <div class="double__form">
+                                        <input class="input-dinamico-estudiante" id="names" type="text" name="names" maxlength="40" autocomplete="off" placeholder="Nombres" />
+                                        <input class="input-dinamico-estudiante" id="paternal_surname" type="text" name="paternal_surname" maxlength="40" autocomplete="off" placeholder="Apellido Paterno" />
+                                    </div>
+                                    <div class="double__form">
+                                        <input class="input-dinamico-estudiante" id="maternal_surname" type="text" name="maternal_surname" maxlength="40" autocomplete="off" placeholder="Apellido Materno" />
+                                        <select class="input-dinamico-estudiante" id="type-document" name="type-document">
+                                            <option value="" disabled selected>Tipo de documento</option>
+                                            <option value="DNI">DNI</option>
+                                            <option value="Carné de Extranjería">Carnet de Extranjería</option>
+                                            <option value="Pasaporte">Pasaporte</option>
+                                        </select>
+                                    </div>
+                                    <div class="double__form">
+                                        <input class="input-dinamico-estudiante" id="number-document" type="text" name="number-document" maxlength="40" autocomplete="off" placeholder="Nro de documento" />
+                                        <input class="input-dinamico-estudiante" id="email" type="email" name="email" maxlength="40" autocomplete="off" placeholder="Correo" />
+                                    </div>
+                                    <div class="double__form">
+                                        <input class="input-dinamico-estudiante" id="phone" type="tel" name="phone" maxlength="40" autocomplete="off" placeholder="Celular" />
+                                        <div class="form__container--school" style="width: 100%;">
+                                            <input class="input-dinamico-estudiante" list="lista-colegios" id="search-colegio" type="text" placeholder="Busca tu colegio..." autocomplete="off">
+                                            <datalist id="lista-colegios"></datalist>
+                                            <input type="hidden" id="school-code" name="school">
+                                        </div>
+                                    </div>
+                                    <div class="double__form">
+                                        <select class="input-dinamico-estudiante" id="degree-study" name="degree-study">
+                                            <option value="" disabled selected>Año de egreso</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                        <select class="input-dinamico-estudiante" id="career-1" name="career-1">
+                                            <option value="" disabled selected>Carrera de interés</option>
+                                            <option value="EDUCACIÓN INICIAL">Educación Inicial</option>
+                                            <option value="EDUCACIÓN PRIMARIA">Educación Primaria</option>
+                                            <option value="EDUCACIÓN SECUNDARIA">Educación Secundaria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
 
+                            <!-- SECCIÓN TUTOR / APODERADO -->
+                            <div id="seccion-tutor">
+                                <div class="header-acordeon" id="header-tutor" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <h3 id="titulo-tutor" style="margin: 0;">Datos del Padre o Apoderado</h3>
+                                    <span class="toggle-icon" id="toggle-tutor" style="font-size: 24px; font-weight: bold; display: none;">+</span>
+                                </div>
+                                <div class="campos-desplegables" id="campos-tutor">
+                                    <div class="double__form">
+                                        <input class="input-dinamico-tutor" id="tutor_names" type="text" name="tutor_names" maxlength="40" autocomplete="off" placeholder="Nombres del tutor"/>
+                                        <input class="input-dinamico-tutor" id="tutor-paternal-surname" type="text" name="tutor-paternal-surname" maxlength="40" autocomplete="off" placeholder="Apellido Paterno tutor"/>
+                                    </div>
+                                    <div class="double__form">
+                                        <select class="input-dinamico-tutor" id="tutor-type-document" name="tutor-type-document">
+                                            <option value="" disabled selected>Tipo de documento</option>
+                                            <option value="DNI">DNI</option>
+                                            <option value="Carné de Extranjería">Carnet de Extranjería</option>
+                                            <option value="Pasaporte">Pasaporte</option>
+                                        </select>
+                                        <input class="input-dinamico-tutor" id="tutor-number-document" type="text" name="tutor-number-document" maxlength="20" autocomplete="off" placeholder="Nro de documento tutor" />
+                                    </div>
+                                    <div class="double__form">
+                                        <input class="input-dinamico-tutor" id="tutor-phone" type="tel" name="tutor-phone" maxlength="9" autocomplete="off" placeholder="Celular tutor"/>
+                                        <input class="input-dinamico-tutor" id="tutor-email" type="email" name="tutor-email" maxlength="100" autocomplete="off" placeholder="Correo tutor"/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        
+                        <div class="authorization">
+                            <input type="checkbox" required name="" id="">
+                            <p>Autorizo a la Pontificia Universidad Católica del Perú a utilizar mis datos personales para los fines mencionados. <span class="disclam" style="text-decoration: underline;">Ver autorización.*</span></p>
+                        </div>
+                        <div class="authorization">
+                            <input type="checkbox" required name="" id="">
+                            <p>Autorizo a la Pontificia Universidad Católica del Perú a enviarme información sobre sus programas académicos.</p>
+                        </div>
+                        <div class="content__button">
+                            <button type="submit">Enviar mis datos</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="razones">
+            <div class="razonesCt">
+                <img class="razonesCtTitle" src="razones-title.png" alt="">
+                <div class="razonesCtSlider">
+                    <div class="razonesCtSliderWrap">
+                        <div class="razonesCtSliderWrap__slider">
+                            <div class="razonesCtSliderWrap__sliderTop">
+                                <img class="razonesCtSliderWrap__sliderTopBack" src="slider-mobile-1.png" alt="">
+                            </div>
+                            <div class="razonesCtSliderWrap__sliderBottom">
+                                <img src="slider-icon.png" alt="">
+                                <h3>VIVE LA EXPERIENCIA:</h3>
+                                <p>Conoce más sobre nuestra infraestructura y recorre los espacios más importantes del campus universitario.</p>
+                            </div>
+                        </div>
+                        <div class="razonesCtSliderWrap__slider">
+                            <div class="razonesCtSliderWrap__sliderTop">
+                                <img class="razonesCtSliderWrap__sliderTopBack" src="slider-mobile-2.png" alt="">
+                            </div>
+                            <div class="razonesCtSliderWrap__sliderBottom">
+                                <img src="slider-icon.png" alt="">
+                                <h3>INTERACCIÓN CON UN ESTUDIANTE PUCP:</h3>
+                                <p>Podrás conocer y conversar con un estudiante guía durante todo el recorrido quién absolverá cualquier inquietud acerca de la universidad.</p>
+                            </div>
+                        </div>
+                        <div class="razonesCtSliderWrap__slider">
+                            <div class="razonesCtSliderWrap__sliderTop">
+                                <img class="razonesCtSliderWrap__sliderTopBack" src="slider-mobile-3.png" alt="">
+                            </div>
+                            <div class="razonesCtSliderWrap__sliderBottom">
+                                <img src="slider-icon.png" alt="">
+                                <h3>VEN ACOMPAÑADO:</h3>
+                                <p>Vive esta experiencia junto a tus papás para que ellos también conozcan todo sobre el campus.</p>
+                            </div>
+                        </div>
+                        <div class="razonesCtSliderWrap__slider">
+                            <div class="razonesCtSliderWrap__sliderTop">
+                                <img class="razonesCtSliderWrap__sliderTopBack" src="slider-mobile-4.png" alt="">
+                            </div>
+                            <div class="razonesCtSliderWrap__sliderBottom">
+                                <img src="slider-icon.png" alt="">
+                                <h3>CONOCE TODO EL PROCESO:</h3>
+                                <p>Resuelve tus dudas sobre modalidades de admisión, CEPREPUCP y becas a las que podrías acceder. </p>
+                            </div>
+                        </div>
+                        <div class="razonesCtSliderWrap__slider">
+                            <div class="razonesCtSliderWrap__sliderTop">
+                                <img class="razonesCtSliderWrap__sliderTopBack" src="slider-mobile-5.png" alt="">
+                            </div>
+                            <div class="razonesCtSliderWrap__sliderBottom">
+                                <img src="slider-icon.png" alt="">
+                                <h3>CONOCE DE CERCA TU CARRERA:</h3>
+                                <p>Elige la ruta de tu interés, cada una tiene estaciones acordes a las carreras que más te gustan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="razonesCtSliderButtons">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fechas">
+            <div class="fechasCt">
+                <div class="fechaCtTitle">
+                    <img src="fechas-title.png" alt="">
+                    <div class="fechaCtTitleInfo">
+                        <img src="logo-visitas.png" alt="">
+                        <h3><b>Sábados:</b><br>10:00 a.m.<br>a 1:00 p.m.</h3>
+                    </div>
+                </div>
+                <div class="fechasCtBottom">
+                    <p>Recuerda que al registrarte eliges la fecha que mejor te acomode.</p>
+                    <h3>¡CUPOS LIMITADOS!</h3>
+                </div>
             </div>
         </div>
     </div>

@@ -128,23 +128,456 @@ p, h1, h2, h3, h4, h5 {
     background-color: white;
     max-height: 5rem;
     overflow: hidden;
-    width: auto;
+    width: 100vw; /* Asegura que tome todo el ancho de la ventana */
     padding: 1rem 0 1.5rem 0;
+    position: relative;
 }
 
 .separatorCt {
     display: flex;
-    width: 100%;
+    width: max-content; /* Permite que el contenedor se expanda según su contenido */
+    animation: scrollEffect 20s linear infinite;
+    margin-bottom: .5rem;
 }
 
 .separatorCt p {
     min-width: 30rem;
     font-weight: 700;
     color: var(--azul);
+    padding-right: 2rem; /* Añade un pequeño respiro entre cada frase */
 }
 
+.separatorCtImages {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    /* Eliminamos display: flex para que las imágenes se superpongan en lugar de colocarse lado a lado */
+}
+
+.separatorCtImages img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1rem; /* Ajusta este valor según la altura real de tus ondas */
+    width: 400vw; /* Hacemos la imagen el doble de ancha para que tenga margen de desplazamiento */
+    object-fit: cover; /* o object-fit: fill si necesitas que se estire */
+}
+
+.second-image {
+    z-index: 10;
+    /* Aplicamos la animación únicamente a la segunda imagen */
+    animation: moveWave 5s linear infinite; 
+}
+
+@keyframes scrollEffect {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* Desplaza el contenedor a la mitad de su ancho total antes de reiniciar sin saltos */
+        transform: translateX(-50%); 
+    }
+}
+
+@keyframes moveWave {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* Al tener un width de 200vw, desplazarla un -50% la mueve exactamente una pantalla entera (100vw) antes de reiniciar el bucle */
+        transform: translateX(-50%); 
+    }
+}
 
 .topForm {
     background-color: var(--azul-claro);
-    height: 30rem;
+    height: auto;
+    padding: 3rem;
+}
+
+.formulario {
+    min-height: auto;
+    border: 1px solid white;
+    border-top-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    height: auto;
+
+    min-height: fit-content;
+    height: fit-content;
+}
+
+.formulario h2 {
+    font-size: var(--texto-37);
+    padding: 0;
+    margin: 0;
+    line-height: 1.6rem;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.formulario h4 {
+    font-size: var(--texto-35);
+    line-height: 1.3rem;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: .8rem;
+    height: auto;
+}
+
+form .eleccion {
+    display: flex;
+    flex-direction: row;
+    height: 1.8rem;
+}
+
+form .eleccion h3 {
+    width: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+form .eleccion select {
+    width: 100%;
+    height: 1.8rem;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid white;
+    height: 1.8rem;
+    padding-left: .5rem;
+    border-radius: .5rem;
+    color: rgba(255, 255, 255, 0.455);
+}
+
+form .eleccion select option {
+    background-color: var(--azul);
+    color: white;
+    font-family: "TTNorms", sans-serif;
+}
+
+form .eleccion h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    margin-right: .5rem;
+}
+
+form .eleccion .form__election {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.form__election div {
+    display: flex;
+    column-gap: .3rem;
+}
+
+.form__election div h4 {
+    font-size: .8rem;
+}
+
+.double__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+#contenedor-dinamico {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+#seccion-tutor,
+#seccion-estudiante,
+#campos-tutor,
+#campos-estudiante {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+#seccion-tutor h3,
+#seccion-estudiante h3 {
+    color: #ebebeb;
+    font-size: 1rem;
+    font-weight: 400;
+    
+}
+
+#seccion-estudiante h3 {
+    background-color: var(--azul);
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+}
+
+#header-tutor {
+    background-color: var(--azul);
+    padding: .3rem 1rem;
+    border-radius: 1rem;
+}
+
+#toggle-tutor {
+    color: #ebebeb;
+}
+
+.double__form input,
+.double__form select {
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid white;
+    height: 1.8rem;
+    padding-left: .5rem;
+    border-radius: .5rem;
+}
+
+.double__form input[type="text"] {
+    color: white;
+}
+
+.double__form input {
+    color: white;
+}
+
+.double__form select {
+    color: rgba(255, 255, 255, 0.455);
+}
+
+.double__form select option {
+    background-color: var(--azul);
+    color: white;
+    font-family: "TTNorms", sans-serif;
+}
+
+.form__container--school {
+    width: 100%;
+}
+
+.double__form input::placeholder,
+.double__form select::placeholder {
+    color: rgba(255, 255, 255, 0.455);
+}
+
+.authorization {
+    display: flex;
+    column-gap: .5rem;
+}
+
+.authorization p {
+    font-size: .8rem;
+    font-weight: 500;
+    color: white;
+}
+
+.content__button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content__button button {
+    background-color: var(--naranja);
+    color: var(--azul);
+    border: none;
+    height: 2.3rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 10rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.razones {
+    background-color: var(--azul-claro);
+    padding: 0 3rem 3rem 3rem;
+}
+
+.razonesCt {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.razonesCtTitle {
+    width: 15rem;
+    height: auto;
+}
+
+.razonesCtSlider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    justify-content: center;
+    overflow: hidden; /* Oculta los elementos que están fuera del área visible */
+}
+
+.razonesCtSliderWrap {
+    display: flex; /* Alinea todos los slides en una fila horizontal */
+    width: 100%;
+    flex-wrap: nowrap;
+    transition: transform 0.4s ease-in-out; /* Agrega la animación de deslizamiento */
+    gap: 1.5rem;
+    touch-action: pan-y;
+}
+
+.razonesCtSliderWrap__slider {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%; /* Obliga a cada slide a ocupar el 100% del contenedor padre */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.razonesCtSliderWrap__sliderTop {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.razonesCtSliderWrap__sliderTopBack {
+    /* position: absolute; */
+    top: 0;         /* AÑADIDO */
+    left: 0;        /* AÑADIDO */
+    width: 100%;
+    height: 100%;   /* AÑADIDO: Asegura que el patrón de fondo llene toda la cabecera */
+    object-fit: cover;
+}
+
+.razonesCtSliderWrap__sliderBottom {
+    background-color: white;
+    padding: 1rem 2rem 2rem 2rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+    height: 12rem;
+    position: relative;
+}
+
+.razonesCtSliderWrap__sliderBottom h3 {
+    font-weight: 800;
+    line-height: 1.4rem;
+    color: var(--azul);
+}
+
+.razonesCtSliderWrap__sliderBottom p {
+    color: var(--azul-claro);
+    font-size: .9rem;
+}
+
+.razonesCtSliderWrap__sliderBottom img {
+    top: -2rem;
+    right: .7rem;
+    width: 5rem;
+    height: auto;
+    position: absolute;
+}
+
+.razonesCtSliderButtons {
+    display: flex;
+    column-gap: 1rem;
+    justify-content: center;
+}
+
+.razonesCtSliderButtons span {
+    background-color: var(--naranja);
+    border-radius: 2rem;
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+}
+
+.razonesCtSliderButtons span.active {
+    width: 2.5rem;
+}
+
+.fechas {
+    padding: 3rem;
+    background-color: var(--azul);
+}
+
+.fechasCt {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.fechaCtTitle {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.fechaCtTitle img {
+    width: 15rem;
+    height: auto;
+}
+
+.fechaCtTitleInfo {
+    position: relative;
+    width: 13rem;
+}
+
+.fechaCtTitleInfo h3 {
+    background-color: #fe8512;
+    width: 13rem;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--azul);
+    border-top-right-radius: 3.5rem;
+    border-bottom-right-radius: 3.5rem;
+}
+
+.fechaCtTitleInfo img {
+    position: absolute;
+    width: 5rem;
+    top: -.5rem;
+    right: -2.5rem;
+    height: auto;
+}
+
+.fechasCtBottom {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1rem;
+    text-align: center;
+} 
+
+.fechasCtBottom p {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.fechasCtBottom h3 {
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--verde-claro);
 }
