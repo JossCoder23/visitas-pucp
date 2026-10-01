@@ -1,0 +1,150 @@
+*{
+    padding: 0;
+    font-family: "TTNorms2", sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --azul: #042354;
+    --azul-claro: #2841dd;
+    --naranja: #fe8512;
+
+    --amarillo: #f0ae19;
+    --naranja-dos: #ff6e26;
+    --celeste: #41b9e4;
+    --verde-claro: #add754;
+    --verde-agua: #00bf82;
+    --violeta: #a54afa;
+    --fucsia: #c822bc;
+
+    --texto-96: clamp(2rem, 1.5rem + 2.5vw, 4.1rem);
+    --texto-72: clamp(1.75rem, 1.425rem + 1.625vw, 2.9rem);
+    --texto-69: clamp(1.625rem, 1.3rem + 1.61vw, 2.8rem);
+    --texto-40: clamp(1.125rem, 0.975rem + 0.75vw, 1.4rem);
+    --texto-37: clamp(1.06rem, 0.93rem + 0.67vw, 1.33rem);
+    --texto-35: clamp(1rem, 0.87rem + 0.64vw, 1.24rem);
+    --texto-32: clamp(.8rem, 0.67rem + 0.44vw, 1.04rem);
+    --texto-30: clamp(.7rem, 0.57rem + 0.34vw, .94rem);
+}
+
+p, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+    font-variant-ligatures: none;
+    -webkit-font-variant-ligatures: none; 
+    font-feature-settings: "liga" 0, "dlig" 0;
+    -webkit-font-feature-settings: "liga" 0, "dlig" 0;
+}
+
+.pucp-landing-wrapper {
+    position: relative;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    min-height: 38rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    /* background-color: var(--azul); */
+    width: 100%;
+    padding: 2rem 0;
+    z-index: 3;
+    position: relative;
+}
+
+.header img {
+    width: auto;
+    height: 3rem;
+}
+
+.bannerMobile {
+    width: 100%;
+    height: 38rem;
+    max-height: 38rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.bannerCt {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    width: 17rem;
+    min-height: 31rem;
+}
+
+.bannerCtInfo {
+    position: relative;
+    z-index: 4;
+    /* height: 21rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.bannerCtInfoText {
+    background-color: var(--azul-claro);
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: white;
+    padding: 1rem 1.5rem 1rem 1rem;
+    border-top-right-radius: 2.8rem;
+    border-bottom-right-radius: 2.8rem;
+}
+
+.bannerCtImgTitle {
+    z-index: 4;
+    position: relative;
+    width: 16rem;
+    height: auto;
+}
+
+.bannerCtLogo {
+    width: 4rem;
+    height: auto;
+    position: absolute;
+    right: -1.3rem;
+    top: -2rem;
+}
+
+.separator {
+    background-color: white;
+    max-height: 5rem;
+    overflow: hidden;
+    width: auto;
+    padding: 1rem 0 1.5rem 0;
+}
+
+.separatorCt {
+    display: flex;
+    width: 100%;
+}
+
+.separatorCt p {
+    min-width: 30rem;
+    font-weight: 700;
+    color: var(--azul);
+}
+
+
+.topForm {
+    background-color: var(--azul-claro);
+    height: 30rem;
+}
