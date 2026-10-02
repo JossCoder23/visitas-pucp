@@ -272,4 +272,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // =========================================================================
+    // SLIDER DE RUTAS (Scroll Snap + Dots)
+    // =========================================================================
+    const rutaWrap = document.querySelector('.rutaCtWrap');
+    const rutaCards = document.querySelectorAll('.rutaCtCard');
+    const rutaDots = document.querySelectorAll('.rutaCtDots .dot');
+
+    if (rutaWrap && rutaDots.length > 0) {
+        // 1. Actualizar el dot activo al deslizar (swipe)
+        rutaWrap.addEventListener('scroll', () => {
+            // Se calcula qué tarjeta está más visible en el viewport del contenedor
+            let scrollPos = rutaWrap.scrollLeft;
+            let cardTotalWidth = rutaCards[0].offsetWidth + 24; // Ancho + gap (1.5rem ≈ 24px)
+            
+            // Math.round para detectar la tarjeta central
+            let activeIndex = Math.round(scrollPos / cardTotalWidth);
+
+            // Evitar desbordamiento del índice
+            if (activeIndex < 0) activeIndex = 0;
+            if (activeIndex >= rutaDots.length) activeIndex = rutaDots.length - 1;
+
+            // Actualizar clases
+            rutaDots.forEach(dot => dot.classList.remove('active'));
+            rutaDots[activeIndex].classList.add('active');
+        }, { passive: true });
+
+        // 2. Lógica para los clics en los puntos (mover el scroll)
+        rutaDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                let cardTotalWidth = rutaCards[0].offsetWidth + 24; // Ancho + gap
+                let scrollToPosition = index * cardTotalWidth;
+
+                rutaWrap.scrollTo({
+                    left: scrollToPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+
 });

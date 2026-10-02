@@ -44,6 +44,7 @@ p, h1, h2, h3, h4, h5 {
 
 .pucp-landing-wrapper {
     position: relative;
+    overflow: hidden;
 }
 
 .banner {
@@ -79,6 +80,10 @@ p, h1, h2, h3, h4, h5 {
     top: 0;
     left: 0;
     object-fit: cover;
+}
+
+.bannerDesktop {
+    display: none;
 }
 
 .bannerCt {
@@ -122,12 +127,21 @@ p, h1, h2, h3, h4, h5 {
     width: 4rem;
     height: auto;
     position: absolute;
-    right: -1.3rem;
-    top: -2rem;
+    right: -3.3rem;
+    top: -1.8rem;
 }
 
 .separator {
     background-color: white;
+    max-height: 5rem;
+    overflow: hidden;
+    width: 100vw; /* Asegura que tome todo el ancho de la ventana */
+    padding: 1rem 0 1.5rem 0;
+    position: relative;
+}
+
+.separator2 {
+    display: none;
     max-height: 5rem;
     overflow: hidden;
     width: 100vw; /* Asegura que tome todo el ancho de la ventana */
@@ -586,6 +600,7 @@ form .eleccion .form__election {
 
 .ruta {
     padding: 3rem;
+    overflow: hidden;
 }
 
 .rutaCt {
@@ -616,9 +631,9 @@ form .eleccion .form__election {
 
 @media (min-width: 1024px) {
     .rutaCtWrap {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); 
+        display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         overflow-x: visible;
     }
 }
@@ -718,6 +733,33 @@ form .eleccion .form__election {
 
 .card5 {
     background-color: var(--naranja-dos) !important;
+}
+
+.rutaCtDots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rutaCtDots .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #d1d5db; /* Gris claro */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.rutaCtDots .dot.active {
+    background-color: var(--verde-claro, #8BC34A); /* Usa tu variable de color */
+    transform: scale(1.2);
+}
+
+@media (min-width: 1024px) {
+    .rutaCtDots {
+        display: none; /* Oculta los dots en desktop donde usas grid */
+    }
 }
 
 .preguntas {
@@ -830,4 +872,355 @@ form .eleccion .form__election {
     width: 70rem;
     position: absolute;
     bottom: 0;
+}
+
+footer {
+    background-color: var(--azul);
+    padding: 3rem;
+    font-size: var(--texto-32);
+    color: white;
+}
+
+.footerTopCt {
+    max-width: 68.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+}
+
+.footerLeft {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: flex-start;
+}
+
+.footerLeftLogo {
+    width: auto;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footerLeftParagraph {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.footerLeftIcons {
+    display: flex;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footerLeftIcons img {
+    height: 2rem;
+    width: auto;
+}
+
+.footerMedium {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.footerMedium a {
+    color: white;
+}
+
+.footerMedium img {
+    width: 15rem;
+    height: auto;
+}
+
+.footerBottomCt {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.footerBottomCt img {
+    height: 3rem;
+    width: auto;
+}
+
+.footerRightImage {
+    display: none;
+}
+
+@media (min-width: 1020px) {
+    .double__form {
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+    .formulario {
+        width: 22rem;
+        background-color: white;
+    }
+    .formulario h2,
+    form .eleccion h3,
+    form .eleccion select,
+    .double__form input[type="text"],
+    .double__form input, 
+    .double__form select {
+        color: var(--azul);
+    }
+
+    .double__form input, 
+    .double__form select {
+        border: 1px solid var(--azul);
+        color: var(--azul);
+    }
+
+    .formulario h2 {
+        font-size: 1rem;
+        line-height: normal;
+    }
+    
+    #seccion-estudiante h3 {
+        font-size: .9rem;
+    }
+
+    #seccion-tutor, #seccion-estudiante, #campos-tutor, #campos-estudiante {
+        row-gap: .7rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .headerCt {
+        min-width: 68.5rem;
+    }
+    .separator {
+        display: none;
+    }
+    .separator2 {
+        display: block;
+    }
+    .banner {
+        min-height: 100%;
+        height: auto;
+        overflow: visible;
+    }
+    .bannerCt {
+        height: 100%;
+        /* min-height: 100%; */
+        width: 30rem;
+        align-items: flex-start;
+    }
+    .bannerMobile {
+        display: none;
+    }
+    .top-visitas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .topVisitasCt {
+        /* background-color: red; */
+        display: flex;
+        min-width: 68.5rem;
+        z-index: 5;
+        position: relative;
+        padding: 3rem 0;
+        justify-content: space-between;
+    }
+    .bannerDesktop {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        min-width: 85rem;
+    }
+    .bannerCtImgTitle {
+        width: 26rem;
+    }
+    .topForm {
+        padding: 0;
+        background-color: transparent;
+    }
+    .double__form input::placeholder, 
+    .double__form select::placeholder {
+        color: var(--azul);
+    }
+    #seccion-tutor h3, #seccion-estudiante h3 {
+        font-size: .9rem;
+    }
+    #soy {
+        border: 1px solid var(--azul);
+    }
+    .authorization p {
+        color: var(--azul);
+        font-size: .7rem;
+    }
+    .bannerCt {
+        padding: 0;
+        margin: 0;
+    }
+    .bannerCtInfoText {
+        font-size: 1.4rem;
+        width: 20rem;
+    }
+    .formulario {
+        border-bottom-right-radius: 0;
+    }
+    .bannerCtLogo {
+        width: 5rem;
+    }
+    .separatorCtImages img {
+        width: 150vw;
+    }
+    .separatorCt p {
+        font-size: 1.3rem;
+    }
+    .razones {
+        padding: 3rem;
+    }
+    .razonesCtTitle {
+        width: 25rem;
+    }
+    .razonesCtSlider {
+        max-width: 40rem;
+    }
+    .razonesCtSliderWrap__slider {
+        flex-direction: row;
+        
+    }
+    .fechas {
+        padding: 5rem 3rem;
+    }
+    .fechasCt {
+        row-gap: 3rem;
+    }
+    .fechaCtTitle {
+        flex-direction: row;
+        column-gap: 4rem;
+        align-items: flex-end;
+    }
+    .fechaCtTitle .fechaTitle {
+        width: 22rem;
+    }
+    .fechaCtTitleInfo h3 {
+        height: 15rem;
+        width: 14rem;
+        border-top-right-radius: 7.5rem;
+        border-bottom-right-radius: 7.5rem;
+    }
+    .fechaCtTitleInfo img {
+        width: 6rem;
+        top: -0.5rem;
+        right: -3.5rem;
+        height: auto;
+    }
+    .fechaCtTitleInfo h3 {
+        font-size: 1.6rem;
+        justify-content: center;
+        padding-top: 4.3rem;
+    }
+    .fechasCtBottom p {
+        font-size: 1.3rem;
+    }
+    .fechasCtBottom h3 {
+        font-size: 2.3rem;
+    }
+    .fechasCtBottom {
+        row-gap: 2rem;
+    }
+    .ruta {
+        padding: 5rem 3rem;
+    }
+    .rutaCt {
+        min-width: 68.5rem;
+        row-gap: 3rem;
+    }
+    .rutaCtCard {
+        width: 12rem;
+        height: 18rem;
+    }
+    .rutaCtTitle img {
+        width: 25rem;
+    }
+    .rutaCtCardFront__title {
+        font-size: 1rem;
+    }
+    .preguntas {
+        display: flex;
+        justify-content: center;
+        padding: 5rem 3rem;
+    }
+    .preguntasCt {
+        min-width: 68.5rem;
+        width: 68.5rem;
+    }
+    .preguntasCtTitle img {
+        width: 25rem;
+    }
+    .preguntaCtWrap__title h3 {
+        font-size: 1.4rem;
+    }
+    .preguntaCtWrap__title h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+    .preguntaCtWrap__response > p {
+        font-size: 1.2rem;
+    }
+    .inscribete {
+        padding: 5rem 3rem;
+    }
+    .inscribeteCt h3 {
+        width: 30rem;
+        font-size: 1.5rem;
+    }
+    .inscribete img {
+        width: 100rem;
+        bottom: -4rem;
+        left: 0;
+    }
+    footer {
+        font-size: var(--texto-30);
+        padding: 0;
+    }
+    .footerBottomCt img {
+        display: none;
+    }
+    .footerTop {
+        padding: 3rem 3rem 1rem 3rem;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid white;
+    }
+    .footerTopCt {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .footerTopCt > div {
+        width: 30%;
+    }
+    .footerRight {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .footerRightImage {
+        display: block;
+        width: 10rem;
+        height: auto;
+    }
+    .footerBottomCt {
+        padding: 2rem 2rem 2rem 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .footerBottomCt p {
+        text-align: center;
+    }
 }
