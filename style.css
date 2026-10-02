@@ -581,3 +581,270 @@ form .eleccion .form__election {
     font-size: 1.6rem;
     color: var(--verde-claro);
 }
+/* 
+.ruta {
+    padding: 3rem;
+}
+
+.rutaCt {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.rutaCtTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.rutaCtTitle img {
+    width: 18rem;
+    height: auto;
+}
+
+.rutaCtCard {
+    width: 15rem;
+    height: 23rem; 
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.rutaCtCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.rutaCtCard.is-flipped .rutaCtCardInner {
+    transform: rotateY(180deg);
+}
+
+.rutaCtCardFront, 
+.rutaCtCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.rutaCtCardBack {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.rutaCtCardFront {
+    z-index: 2;
+}
+
+.rutaCtCardFront--image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rutaCtCardFront__title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.rutaCtCardFront__row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--verde-claro);
+    padding: .5rem 1rem .5rem .5rem;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    z-index: 3;
+}
+
+.rutaCtCardBack {
+    background-color: var(--verde-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    color: white; 
+    transform: rotateY(180deg); 
+}
+
+.card2 {
+    background-color: var(--naranja) !important;
+}
+
+.card3 {
+    background-color: var(--azul-claro) !important;
+}
+
+.card5 {
+    background-color: var(--naranja-dos) !important;
+} */
+
+.ruta {
+    padding: 3rem;
+}
+
+.rutaCt {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.rutaCtTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.rutaCtTitle img {
+    width: 18rem;
+    height: auto;
+}
+
+/* ==========================================================
+   CAMBIO PRINCIPAL: SLIDER EN MÓVIL Y GRID EN DESKTOP
+   ========================================================== */
+.rutaCtWrap {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;          /* Permite el scroll horizontal en mobile */
+    scroll-snap-type: x mandatory; /* Hace que el scroll se ajuste suavemente a cada tarjeta */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    /* padding-bottom: 1rem;      Espacio para que no corte la sombra/borde si la hubiera */
+    width: 100%;
+}
+
+/* Ocultar la barra fea del scroll horizontal (opcional, pero estético) */
+/* .rutaCtWrap::-webkit-scrollbar {
+    height: 6px;
+} */
+/* .rutaCtWrap::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+} */
+
+/* En Desktop (pantallas de 1024px en adelante): Se despliegan los 5 sin slider */
+@media (min-width: 1024px) {
+    .rutaCtWrap {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Las 5 tarjetas en una fila */
+        justify-content: center;
+        overflow-x: visible; /* Desactiva el scroll */
+    }
+}
+
+/* Estilos de las tarjetas (Se mantienen igual) */
+.rutaCtCard {
+    width: 15rem;
+    height: 23rem; 
+    perspective: 1000px;
+    cursor: pointer;
+    flex: 0 0 auto; /* Evita que las tarjetas se encojan en el slider de móvil */
+    scroll-snap-align: start; /* Alinea la tarjeta al hacer swipe en móvil */
+}
+
+.rutaCtCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.rutaCtCard.is-flipped .rutaCtCardInner {
+    transform: rotateY(180deg);
+}
+
+.rutaCtCardFront, 
+.rutaCtCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.rutaCtCardBack {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.rutaCtCardFront {
+    z-index: 2;
+}
+
+.rutaCtCardFront--image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rutaCtCardFront__title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.rutaCtCardFront__row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--verde-claro);
+    padding: .5rem 1rem .5rem .5rem;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    z-index: 3;
+}
+
+.rutaCtCardBack {
+    background-color: var(--verde-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    color: white; 
+    transform: rotateY(180deg); 
+}
+
+.card2 {
+    background-color: var(--naranja) !important;
+}
+
+.card3 {
+    background-color: var(--azul-claro) !important;
+}
+
+.card5 {
+    background-color: var(--naranja-dos) !important;
+}
