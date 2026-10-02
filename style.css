@@ -21,6 +21,7 @@ html {
     --verde-agua: #00bf82;
     --violeta: #a54afa;
     --fucsia: #c822bc;
+    --gray: #eeeeee;
 
     --texto-96: clamp(2rem, 1.5rem + 2.5vw, 4.1rem);
     --texto-72: clamp(1.75rem, 1.425rem + 1.625vw, 2.9rem);
@@ -48,7 +49,7 @@ p, h1, h2, h3, h4, h5 {
 .banner {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     overflow: hidden;
     position: relative;
@@ -58,9 +59,9 @@ p, h1, h2, h3, h4, h5 {
 .header {
     display: flex;
     justify-content: center;
-    /* background-color: var(--azul); */
+    background-color: var(--azul);
     width: 100%;
-    padding: 2rem 0;
+    padding: 1rem 0;
     z-index: 3;
     position: relative;
 }
@@ -88,6 +89,7 @@ p, h1, h2, h3, h4, h5 {
     padding-bottom: 2rem;
     width: 17rem;
     min-height: 31rem;
+    margin-top: 2rem;
 }
 
 .bannerCtInfo {
@@ -581,122 +583,6 @@ form .eleccion .form__election {
     font-size: 1.6rem;
     color: var(--verde-claro);
 }
-/* 
-.ruta {
-    padding: 3rem;
-}
-
-.rutaCt {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-}
-
-.rutaCtTitle {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.rutaCtTitle img {
-    width: 18rem;
-    height: auto;
-}
-
-.rutaCtCard {
-    width: 15rem;
-    height: 23rem; 
-    perspective: 1000px;
-    cursor: pointer;
-}
-
-.rutaCtCardInner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s ease;
-    transform-style: preserve-3d;
-}
-
-.rutaCtCard.is-flipped .rutaCtCardInner {
-    transform: rotateY(180deg);
-}
-
-.rutaCtCardFront, 
-.rutaCtCardBack {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    overflow: hidden;
-}
-
-.rutaCtCardBack {
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
-}
-
-.rutaCtCardFront {
-    z-index: 2;
-}
-
-.rutaCtCardFront--image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.rutaCtCardFront__title {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    font-size: 1.2rem;
-}
-
-.rutaCtCardFront__row {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: var(--verde-claro);
-    padding: .5rem 1rem .5rem .5rem;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-    z-index: 3;
-}
-
-.rutaCtCardBack {
-    background-color: var(--verde-claro);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 2rem;
-    color: white; 
-    transform: rotateY(180deg); 
-}
-
-.card2 {
-    background-color: var(--naranja) !important;
-}
-
-.card3 {
-    background-color: var(--azul-claro) !important;
-}
-
-.card5 {
-    background-color: var(--naranja-dos) !important;
-} */
 
 .ruta {
     padding: 3rem;
@@ -719,46 +605,31 @@ form .eleccion .form__election {
     height: auto;
 }
 
-/* ==========================================================
-   CAMBIO PRINCIPAL: SLIDER EN MÓVIL Y GRID EN DESKTOP
-   ========================================================== */
 .rutaCtWrap {
     display: flex;
     gap: 1.5rem;
-    overflow-x: auto;          /* Permite el scroll horizontal en mobile */
-    scroll-snap-type: x mandatory; /* Hace que el scroll se ajuste suavemente a cada tarjeta */
-    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-    /* padding-bottom: 1rem;      Espacio para que no corte la sombra/borde si la hubiera */
+    overflow-x: auto;        
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
     width: 100%;
 }
 
-/* Ocultar la barra fea del scroll horizontal (opcional, pero estético) */
-/* .rutaCtWrap::-webkit-scrollbar {
-    height: 6px;
-} */
-/* .rutaCtWrap::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-} */
-
-/* En Desktop (pantallas de 1024px en adelante): Se despliegan los 5 sin slider */
 @media (min-width: 1024px) {
     .rutaCtWrap {
         display: grid;
-        grid-template-columns: repeat(5, 1fr); /* Las 5 tarjetas en una fila */
+        grid-template-columns: repeat(5, 1fr); 
         justify-content: center;
-        overflow-x: visible; /* Desactiva el scroll */
+        overflow-x: visible;
     }
 }
 
-/* Estilos de las tarjetas (Se mantienen igual) */
 .rutaCtCard {
     width: 15rem;
     height: 23rem; 
     perspective: 1000px;
     cursor: pointer;
-    flex: 0 0 auto; /* Evita que las tarjetas se encojan en el slider de móvil */
-    scroll-snap-align: start; /* Alinea la tarjeta al hacer swipe en móvil */
+    flex: 0 0 auto; 
+    scroll-snap-align: start; 
 }
 
 .rutaCtCardInner {
@@ -847,4 +718,116 @@ form .eleccion .form__election {
 
 .card5 {
     background-color: var(--naranja-dos) !important;
+}
+
+.preguntas {
+    padding: 3rem;
+    background-color: var(--gray);
+}
+
+.preguntasCt {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.preguntasCtTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.preguntasCtTitle img {
+    width: 17rem;
+    height: auto;
+}
+
+.preguntaCtWrap__ct {
+    border-bottom: 1px solid var(--naranja);
+}
+
+.preguntaCtWrap__title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.preguntaCtWrap__title h3 {
+    font-size: 1rem;
+    color: var(--azul);
+    font-weight: 600;
+}
+
+.preguntaCtWrap__title h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--naranja);
+    margin-left: 1rem;
+}
+
+.preguntaCtWrap__response {
+    display: grid;
+    grid-template-rows: 0fr; 
+    transition: grid-template-rows 0.3s ease-in-out; 
+    overflow: hidden; 
+}
+
+.preguntaCtWrap__response > p {
+    min-height: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, padding 0.3s ease-in-out;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--azul);
+}
+
+.preguntaCtWrap__ct.active .preguntaCtWrap__response {
+    grid-template-rows: 1fr; 
+}
+
+.preguntaCtWrap__ct.active .preguntaCtWrap__response > p {
+    padding-bottom: 1rem; 
+    opacity: 1; 
+    transition: opacity 0.3s ease-in-out 0.1s; 
+}
+
+.inscribete {
+    padding: 3rem;
+    background-color: var(--azul-claro);
+    position: relative;
+    overflow: hidden;
+}
+
+.inscribeteCt {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 2rem;
+    align-items: center;
+}
+
+.inscribeteCt h3 {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.inscribeteCt a {
+    text-decoration: none;
+    background-color: var(--verde-claro);
+    color: var(--azul);
+    font-weight: 800;
+    width: 15rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    z-index: 3;
+}
+
+.inscribete img {
+    width: 70rem;
+    position: absolute;
+    bottom: 0;
 }

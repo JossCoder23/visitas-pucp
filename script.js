@@ -251,4 +251,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    document.querySelectorAll('.preguntaCtWrap__title').forEach((title) => {
+        title.addEventListener('click', () => {
+            const itemActual = title.parentElement; // El contenedor .preguntaCtWrap__ct
+            const estaActivo = itemActual.classList.contains('active');
+
+            // 1. Cierra todos los acordeones y restablece sus h2 a "+"
+            document.querySelectorAll('.preguntaCtWrap__ct').forEach((item) => {
+                item.classList.remove('active');
+                const h2 = item.querySelector('.preguntaCtWrap__title h2');
+                if (h2) h2.textContent = '+';
+            });
+
+            // 2. Si el que se hizo clic NO estaba activo, lo abrimos y cambiamos su h2 a "-"
+            if (!estaActivo) {
+                itemActual.classList.add('active');
+                const h2 = title.querySelector('h2');
+                if (h2) h2.textContent = '-';
+            }
+        });
+    });
+
 });
